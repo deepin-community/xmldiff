@@ -1,0 +1,278 @@
+xmldiff (2.4-2) unstable; urgency=low
+
+  * QA upload.
+
+  [ Debian Janitor ]
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository,
+    Repository-Browse.
+  * Fix day-of-week for changelog entry 0.6.4-1.
+  * Update standards version to 4.5.0, no changes needed.
+
+ -- Jelmer Vernooĳ <jelmer@debian.org>  Tue, 02 Feb 2021 17:57:19 +0000
+
+xmldiff (2.4-1) unstable; urgency=medium
+
+  * QA upload.
+  * New upstream version 2.4.
+  * debian/copyright: updated the upstream copyright years and added a
+      new upstream.
+  * debian/manpage/:
+      - Duplicated the code of create-man.sh to generate two manpages.
+      - Updated all files to generate updated 2.4 manpages.
+
+ -- Thiago Andrade Marques <thmarques@gmail.com>  Mon, 04 Nov 2019 12:15:11 -0300
+
+xmldiff (2.3-3) unstable; urgency=medium
+
+  * QA upload.
+  * Run wrap-and-sort.
+  * debian/changelog: fixed spelling errors.
+  * debian/control:
+      - Added ${sphinxdoc:Depends} in field Depends.
+      - Added 'Rules-Requires-Root: no' in source stanza.
+      - Bumped Standards-Version to 4.4.1.
+      - Removed ${shlibs:Depends} in field Depends.
+      - Reorganized, improved the short and long description and fixed
+        a spelling error.
+  * debian/copyright:
+      - Added Apache2 license default text.
+      - Added new upstream rights.
+      - Added the block debian/*.
+      - Added the block debian/manpage/create-man.sh.
+  * debian/docs: created to install the upstream
+      docs/source/contributing.rst file.
+  * debian/doc-base: added to register the HTML file.
+  * debian/manpage/*: created manpages to xmldiff and xmlpatch.
+  * debian/manpages: created to install the manpages.
+  * debian/rules:
+      - Added the override_dh_auto_clean target to remove folders forgotten
+        by upstream after building.
+      - Removed all not needed lines with comments.
+  * debian/salsa-ci.yml: added to provide CI tests for Salsa.
+  * debian/tests/*: added to perform tests.
+
+ -- Thiago Andrade Marques <thmarques@gmail.com>  Wed, 30 Oct 2019 16:37:06 -0300
+
+xmldiff (2.3-2) unstable; urgency=medium
+
+  * QA upload.
+  * debian/control
+    - add Vcs-* fields
+
+ -- Sandro Tosi <morph@debian.org>  Mon, 02 Sep 2019 20:19:23 -0400
+
+xmldiff (2.3-1) unstable; urgency=medium
+
+  * QA upload.
+  * New upstream release; Closes: #921610, #269347, #524981
+  * debian/control
+    - update Homepage file for new upstream location
+    - bump Standards-Version to 4.4.0 (no changes needed)
+    - update description; Closes: #588148
+  * debian/watch
+    - point to github
+  * debian/source/format
+    - switch source format to 3.0 quilt
+  * Switch to python 3; Closes: #938849
+  * bump compat to 12
+  * debian/copyright
+    - update to new upstream code
+  * Build sphinx doc
+
+ -- Sandro Tosi <morph@debian.org>  Mon, 02 Sep 2019 20:14:44 -0400
+
+xmldiff (0.6.10-3) unstable; urgency=medium
+
+  * QA upload.
+  * Set maintainer to Debian QA Group. (see #852629) (Closes: #833327)
+
+ -- Adrian Bunk <bunk@debian.org>  Wed, 25 Jan 2017 21:25:02 +0200
+
+xmldiff (0.6.10-2.3) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Update dependency on sp to opensp.
+
+ -- Neil Roeth <neil@debian.org>  Mon, 03 Oct 2016 08:29:43 -0400
+
+xmldiff (0.6.10-2.2) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Add build-arch and build-indep targets to debian/rules to fix
+    FTBFS with newer versions of dpkg (Closes: #822039)
+
+ -- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>  Wed, 03 Aug 2016 05:59:29 +0200
+
+xmldiff (0.6.10-2.1) unstable; urgency=medium
+
+  [ Benjamin Drung ]
+  * Non-maintainer upload.
+  * Port from python-support to dh_python (Closes: #786023)
+  * Add missing ${misc:Depends} to dependencies
+
+  [ Stefano Rivera ]
+  * Drop pycompat, it's not useful or used.
+
+ -- Benjamin Drung <bdrung@debian.org>  Wed, 19 Aug 2015 22:10:43 +0200
+
+xmldiff (0.6.10-2) unstable; urgency=low
+
+  * Fixed Uploaders field in debian/control (closes: #602619)
+
+ -- Alexandre Fayolle <afayolle@debian.org>  Mon, 08 Nov 2010 09:57:17 +0100
+
+xmldiff (0.6.10-1) unstable; urgency=low
+
+  * Apply Daiki Ueno patch: fails when comparing minimal trees on i386 (closes: #570727)
+  * Acknowledge NMU (closes: #570727, #547860)
+  * Changed helper from pycentral to pysupport
+
+ -- Alexandre Fayolle <afayolle@debian.org>  Mon, 30 Aug 2010 15:08:36 +0200
+
+xmldiff (0.6.9-1) unstable; urgency=low
+
+  * Fix a bug : xmldiff-xmlrev compilation error  (closes: #484768)
+
+ -- Graziella Toutoungis <graziella.toutoungis@logilab.fr>  Fri, 03 Apr 2009 10:41:19 +0200
+
+xmldiff (0.6.8-4.2) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Fix id() calculation in extensions/maplookup.c; that fixes comparison
+    errors on minimal trees (on i386). Patch by Daiki Ueno, applied
+    upstream (see http://www.logilab.org/ticket/21853). (Closes: #570727)
+
+ -- Stefano Zacchiroli <zack@debian.org>  Thu, 18 Mar 2010 11:14:40 +0100
+
+xmldiff (0.6.8-4.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * debian/rules:
+    + Conditionally use $(py_setup_install_args) from python.mk and remove
+      unneeded files from dist-packages as well to enable building with
+      Python 2.6. (Closes: #547860)
+  * Standards Version is now 3.8.3 (no changes needed).
+
+ -- Kumar Appaiah <akumar@debian.org>  Mon, 19 Oct 2009 22:21:57 -0500
+
+xmldiff (0.6.8-4) unstable; urgency=low
+
+  * Fixed __future__ import (closes: #476161)
+  * dropped mentions of python2.3-xmldiff which no longer exists in stable
+  * updated to new standards
+  * fixed encoding of debian/copyright
+
+ -- Alexandre Fayolle <afayolle@debian.org>  Thu, 17 Apr 2008 15:18:10 +0200
+
+xmldiff (0.6.8-3) unstable; urgency=low
+
+  * Fixed package description (closes: #383788, #420781)
+  * converted changelog and manpages to UTF-8
+
+ -- Alexandre Fayolle <afayolle@debian.org>  Fri, 11 May 2007 10:53:50 +0200
+
+xmldiff (0.6.8-2) unstable; urgency=low
+
+  * updated standards to 3.7.2
+  * use debhelper 5
+  * new python policy
+
+ -- Alexandre Fayolle <afayolle@debian.org>  Thu, 15 Jun 2006 08:47:44 +0200
+
+xmldiff (0.6.8-1) unstable; urgency=low
+
+  * New upstream release, fixing 64bit cleanness issues
+
+ -- Alexandre Fayolle <afayolle@debian.org>  Wed, 29 Jun 2005 08:52:11 +0200
+
+xmldiff (0.6.7-1) unstable; urgency=low
+
+  * New upstream release
+    - Fixes xupdate:move command problem (closes: #275750)
+    - small improvements / reorganization
+  * Update copyright file
+  * Add an empty line at the bottom of watch
+  * Fix some encoding problem in this file (latin1 instead of utf-8)
+
+ -- Sylvain ThÃ©nault <sylvain.thenault@logilab.fr>  Tue,  3 May 2005 17:41:09 +0200
+
+xmldiff (0.6.6-1) unstable; urgency=low
+
+  * New upstream release
+    - Includes Bastian Kleineidam's patch which fixes many bugs/typos in  xmlrev (closes: #285167, #285164, #285165)
+    - Adds a man page for xmldiff and xmlrev (closes: #286558)
+  * Removed python2.1-dev and python2.2-dev from build dependencies
+
+ -- Alexandre Fayolle <afayolle@debian.org>  Wed, 22 Dec 2004 15:54:52 +0100
+
+xmldiff (0.6.5-1) unstable; urgency=low
+
+  * New upstream release (closes: #278830)
+  * Put xmlrev in a separate package, with proper dependencies
+    (closes: #269343)
+  * Fixed use of DH_OPTIONS in debian/rules (closes: #276904)
+  * Updated build dependency on debhelper
+  * Now suggests python-psyco
+  * Changed section of xmldiff and xmldiff-xmlrev to text, where other xml
+    related tools can be found
+  * Updated debian/watch to version 2 of uupdaterol
+
+
+ -- Alexandre Fayolle <afayolle@debian.org>  Wed, 10 Nov 2004 18:36:35 +0100
+
+xmldiff (0.6.4-5) unstable; urgency=low
+
+  * Changed the Build-Depends-Indep into Build-Depends (closes: #268592)
+
+ -- Alexandre Fayolle <afayolle@debian.org>  Mon, 30 Aug 2004 11:43:27 +0200
+
+xmldiff (0.6.4-4) unstable; urgency=low
+
+  * First upload to debian  (closes: #267598)
+  * New maintainer
+
+ -- Alexandre Fayolle <afayolle@debian.org>  Wed, 25 Aug 2004 22:08:48 +0200
+
+xmldiff (0.6.4-3) unstable; urgency=low
+
+  * move test in a separated package
+
+ -- Sylvain ThÃ©nault <sylvain.thenault@logilab.fr>  Thu,  9 Oct 2003 12:40:07 +0200
+
+xmldiff (0.6.4-2) unstable; urgency=low
+
+  * fix dependencies
+
+ -- Sylvain ThÃ©nault <sylvain.thenault@logilab.fr>  Wed,  8 Oct 2003 15:43:39 +0200
+
+xmldiff (0.6.4-1) unstable; urgency=low
+
+  * new upstream release
+
+ -- Sylvain ThÃ©nault <sylvain.thenault@logilab.fr>  Wed, 08 Oct 2003 12:35:54 +0200
+
+python-logilab-xmldiff (0.6.3-1) unstable; urgency=low
+
+  * new upstream release
+
+ -- Sylvain ThÃ©nault <sylvain.thenault@logilab.fr>  Mon, 17 Mar 2003 13:04:59 +0100
+
+python-logilab-xmldiff (0.6.2-1) unstable; urgency=low
+
+  * new upstream release
+
+ -- Alexandre Fayolle <alexandre.fayolle@logilab.fr>  Wed, 25 Sep 2002 12:15:11 +0200
+
+python-logilab-xmldiff (0.6.1-1) unstable; urgency=low
+
+  * New upstream release
+  * Changed default python version to 2.2
+  * Added support for python2.3
+
+ -- Alexandre Fayolle <alexandre.fayolle@logilab.fr>  Wed, 18 Sep 2002 11:08:25 +0200
+
+python-logilab-xmldiff (0.6.0-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Sylvain Thenault <syt@logilab.fr>  Thu, 22 Aug 2002 14:59:50 +0200

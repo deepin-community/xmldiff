@@ -1,0 +1,29 @@
+#!/usr/bin/make -f
+#export DH_VERBOSE=1
+
+%:
+	dh $@ --with python3,sphinxdoc --buildsystem=pybuild
+
+override_dh_auto_build:
+	dh_auto_build
+
+	$(MAKE) -C docs html
+
+override_dh_auto_install:
+	python3 setup.py -v install --root=debian/xmldiff --install-layout=deb
+	# remove test directory (installed in a separated package)
+	rm -rf debian/xmldiff/usr/lib/python*/*-packages/xmldiff/test debian/xmldiff/usr/share/sgml/ debian/xmldiff/usr/bin/xmlrev
+
+	# install tests
+	(cd tests && find . -type f -not \( -path '*/CVS/*' -or -name '*.pyc' \) -exec install -D --mode=644 {} ../debian/xmldiff/usr/share/doc/xmldiff/test/{} \;)
+
+override_dh_installdocs:
+	dh_installdocs -i -A README.rst CHANGES.rst docs/build/html
+
+override_dh_compress:
+	dh_compress -i -X.py
+
+override_dh_auto_clean:
+	dh_auto_clean
+	rm -rf docs/build/
+	rm -rf xmldiff.egg-info/

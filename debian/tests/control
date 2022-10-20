@@ -1,0 +1,6 @@
+Test-Command: xmldiff debian/tests/all_actions.left.xml debian/tests/all_actions.right.xml
+
+Test-Command: cp -a debian/tests/all_actions.* $AUTOPKGTEST_TMP;
+              xmldiff $AUTOPKGTEST_TMP/all_actions.left.xml $AUTOPKGTEST_TMP/all_actions.right.xml > $AUTOPKGTEST_TMP/diff;
+              xmlpatch $AUTOPKGTEST_TMP/diff $AUTOPKGTEST_TMP/all_actions.left.xml
+Depends: @

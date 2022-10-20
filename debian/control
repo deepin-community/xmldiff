@@ -1,0 +1,38 @@
+Source: xmldiff
+Section: misc
+Priority: optional
+Maintainer: Debian QA Group <packages@qa.debian.org>
+Build-Depends: debhelper-compat (= 12),
+               dh-python,
+               python3,
+               python3-lxml,
+               python3-setuptools,
+               python3-six,
+               python3-sphinx,
+               python3-sphinx-argparse
+Standards-Version: 4.5.0
+Rules-Requires-Root: no
+Homepage: https://github.com/Shoobx/xmldiff
+Vcs-Git: https://salsa.debian.org/debian/xmldiff.git
+Vcs-Browser: https://salsa.debian.org/debian/xmldiff
+
+Package: xmldiff
+Architecture: all
+Depends: ${misc:Depends}, ${python3:Depends}, ${sphinxdoc:Depends}
+Suggests: python3-psyco
+Description: library and command line utility for diffing xml files
+ xmldiff is a library and a command-line utility for making diffs
+ out of XML. This may seem like something that doesn't need a
+ dedicated utility, but change detection in hierarchical data is
+ very different from change detection in flat data. XML type formats
+ are also not only used for computer readable data, it is also often
+ used as a format for hierarchical data that can be rendered into human
+ readable formats. A traditional diff on such a format would tell you
+ line by line the differences, but that would not be readable by a human.
+ xmldiff provides tools to make human readable diffs in those situations.
+ .
+ This package provides two possible commands: xmldiff and xmlpatch.
+ .
+ The diff algorithm is based on _Change detection in hierarchically
+ structured - information_, by S. Chawathe, A. Rajaraman,
+ H. Garcia-Molina and J. Widom, - Stanford University, 1996.

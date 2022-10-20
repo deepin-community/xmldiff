@@ -1,0 +1,9 @@
+Document: xmldiff
+Title: xmldiff Documentation
+Author: 2019, Lennart Regebro <regebro@gmail.com>
+Abstract: This manual describes what xmldiff is, and how it can be used.
+Section: Help
+
+Format: HTML
+Index: /usr/share/doc/xmldiff/html/index.html
+Files: /usr/share/doc/xmldiff/html/*.html
